@@ -10,3 +10,6 @@ For first time, run the following command:
 
 Use the environment (Activate)
     .venv\Scripts\activate
+
+Packages to install
+    numpy
