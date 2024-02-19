@@ -37,3 +37,30 @@ import pandas as pd
 
 data = pd.DataFrame(onehot_vectors, columns=vocab)
 print(data)
+
+import re
+sentence2 = """Thomas Jefferson began building
+Monticello at the \n
+... age of 26."""
+
+# Splits the sentence on whitespace or punctuation
+# that occurs at least once
+token = re.split(r'[-\s.,;!?]+', sentence2)
+print(token)
+
+# compiling regex
+pattern = re.compile(r"([-\s.,;!?])+")
+tokens = pattern.split(sentence)
+print(tokens)
+
+# using NLTK
+from nltk.tokenize import RegexpTokenizer
+tokenizer = RegexpTokenizer(r'\w+|$[0-9.]+|\S+')
+token_res = tokenizer.tokenize(sentence)
+print(token_res)
+
+from nltk.tokenize import TreebankWordTokenizer
+sentence3 = """Monticello wasn't designated as UNESCO World Heritage
+... Site until 1987."""
+tokenizer_tree  = TreebankWordTokenizer()
+tree_res = tokenizer_tree.tokenize(sentence3)
