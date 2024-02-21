@@ -1,4 +1,4 @@
-def convert(num):
+def convertToWords(num):
     print("Number to convert: ", num)
 
     list_output = []
@@ -15,24 +15,21 @@ def convert(num):
         2: 'twenty', 3: 'thirty', 
     }
 
-    # between 20 and 30
-    if num <= 30 and num >= 20:
-        # evaluate the number
-        temp_num = num
-         # get the tens value
+    # evaluate the number
+    temp_num = num
+    # get the tens value
+    if temp_num > 10:
         temp_num = int(temp_num / 10)
-
         list_output.append( tens_dict[temp_num] )
 
-        # get the base value
-        temp_num = num % 10
-        list_output.append( base_dict[temp_num] )
-           
+    # get the base value
+    temp_num = num % 10
+    list_output.append( base_dict[temp_num] )
 
-    else:
-        print("Sorry, I can only process numbers between 20 and 30")
-
-    print(list_output)
+    res = " ".join(list_output)
+    print(res)
     
 
-convert(21)
+numberInput = int(input("Enter the number you want between 0-9 and between 20-30: "))
+
+convertToWords(numberInput)
