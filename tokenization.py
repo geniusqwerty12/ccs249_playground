@@ -1,6 +1,10 @@
-sentence = "Thomas Jefferson began building Monticello at the age of 26."
+sentence ='''Thomas Jefferson began 
+building Monticello at the age of 26.'''
 split_words = sentence.split()
-# print(split_words)
+# Same output
+# split_words = str.split(sentence)
+
+print(split_words)
 
 import numpy as np
 
@@ -64,3 +68,16 @@ sentence3 = """Monticello wasn't designated as UNESCO World Heritage
 ... Site until 1987."""
 tokenizer_tree  = TreebankWordTokenizer()
 tree_res = tokenizer_tree.tokenize(sentence3)
+
+sentence_bow = {}
+for token in sentence.split():
+    sentence_bow[token] = 1
+
+# sort the items
+sorted(sentence_bow.items())
+
+print(sentence_bow)
+
+# STEMMING
+def stem(phrase):
+    return ' '.join([ re.findall('^(.*ss|.*?)')])

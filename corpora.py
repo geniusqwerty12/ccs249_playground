@@ -5,6 +5,8 @@
 # run the nltk-scripy file and download all of the corporas
 import nltk.corpus as corpus
 
+print(corpus.brown.raw())
+
 # list the file ids, name of files that contains
 # the words
 # print(corpus.abc.fileids())
@@ -20,15 +22,15 @@ import nltk.corpus as corpus
 
 
 
-corpora_name = ["brown", "genesis", "gutenberg"]
-corpora = [corpus.brown, corpus.genesis, corpus.gutenberg]
+# corpora_name = ["brown", "genesis", "gutenberg"]
+# corpora = [corpus.brown, corpus.genesis, corpus.gutenberg]
 
-nameIndex = 0
-for corp in corpora: 
-    file_list = corp.fileids()
-    words = corp.words(file_list[0])
-    for i in range(10):
-        print(f'Corpus {corpora_name[nameIndex]} with the file name {file_list[0]} contains the text {words[i]} at index {i}')
+# nameIndex = 0
+# for corp in corpora: 
+#     file_list = corp.fileids()
+#     words = corp.words(file_list[0])
+#     for i in range(10):
+#         print(f'Corpus {corpora_name[nameIndex]} with the file name {file_list[0]} contains the text {words[i]} at index {i}')
 
-    nameIndex += 1
-    print('~~~~~~~')
+#     nameIndex += 1
+#     print('~~~~~~~')
