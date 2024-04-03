@@ -1,3 +1,6 @@
+# Before running this, make sure that the 2 files kite_text.txt and kite_history are
+# on the same folder as this file
+
 from nltk.tokenize import TreebankWordTokenizer
 tokenizer = TreebankWordTokenizer()
 
@@ -62,8 +65,14 @@ for doc in [intro_tokens, history_tokens]:
 intro_idf = {}
 history_idf = {}
 
-intro_idf[term] = number_docs / term_count[term]
-intro_idf[term2] = number_docs / term_count[term2]
+# intro_idf[term] = number_docs / term_count[term]
+# intro_idf[term2] = number_docs / term_count[term2]
+
+from math import log
+
+# applying log of 10
+intro_idf[term] = log(number_docs / term_count[term])
+intro_idf[term2] = log(number_docs / term_count[term2])
 
 history_idf[term] = number_docs / term_count[term]
 history_idf[term2] = number_docs / term_count[term2]
@@ -93,5 +102,3 @@ print(f" TF-IDF for '{term}' word in history document: {round(history_tfidf[term
 
 print(f" TF-IDF for '{term2}' word in intro document: {round(intro_tfidf[term2], 4)}")
 print(f" TF-IDF for '{term2}' word in history document: {round(history_tfidf[term2], 4)}")
-
-# apply log on IDF
